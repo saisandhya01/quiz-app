@@ -5,6 +5,7 @@ let nextButton = document.getElementById("next-button");
 let questionElement = document.getElementById("question");
 let finishQuizButton = document.getElementById("finish-button");
 let submitName = document.getElementById("submit-name");
+let closeName = document.querySelector(".close");
 
 let i = 0;
 let score = 0;
@@ -39,7 +40,7 @@ function addQuestion(index) {
     nextButton.disabled = false;
     finishQuizButton.disabled = true;
   }
-  if (index >= 10) {
+  if (index >= 9) {
     nextButton.disabled = true;
     finishQuizButton.disabled = false;
   }
@@ -66,8 +67,10 @@ function addQuestion(index) {
         if (option.value === questions[index].options[correctAnswer]) {
           optionDiv.classList.add("correct");
           score++;
+          displayNavbar();
         } else {
           optionDiv.classList.add("wrong");
+          displayNavbar();
         }
         //disable all options if one option is clicked
         for (let k = 1; k <= 4; k++) {
@@ -101,7 +104,11 @@ function addQuestion(index) {
 addQuestion(i);
 function displayScore() {
   let body = document.querySelector(".main");
-  body.innerHTML = `<p>Name: ${name}</p><p>Score: ${score}</p>`;
+  if (name === "") {
+    body.innerHTML = `<p>Your score is ${score}</p>`;
+  } else {
+    body.innerHTML = `<p>Name: ${name}</p><p>Score: ${score}</p>`;
+  }
 }
 
 submitName.onclick = () => {
@@ -112,3 +119,29 @@ submitName.onclick = () => {
     modal.style.display = "none";
   }
 };
+closeName.onclick = () => {
+  let modal = document.querySelector(".name");
+  modal.style.display = "none";
+};
+function displayNavbar() {
+  let navbar = document.querySelector(".nav");
+  navbar.innerHTML = "";
+  for (let k = 0; k < 10; k++) {
+    let p = document.createElement("p");
+    p.id = `question-${k + 1}`;
+    p.innerHTML = `Question ${k + 1}`;
+    p.onclick = () => {
+      i = k;
+      addQuestion(k);
+    };
+    if (questions[k].answered) {
+      if (questions[k].selectedAnswer === questions[k].ans) {
+        p.classList.add("correct");
+      } else {
+        p.classList.add("wrong");
+      }
+    }
+    navbar.appendChild(p);
+  }
+}
+displayNavbar();
