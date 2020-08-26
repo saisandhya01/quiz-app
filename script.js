@@ -4,9 +4,11 @@ let previousButton = document.getElementById("previous-button");
 let nextButton = document.getElementById("next-button");
 let questionElement = document.getElementById("question");
 let finishQuizButton = document.getElementById("finish-button");
+let submitName = document.getElementById("submit-name");
 
 let i = 0;
 let score = 0;
+let name = "";
 previousButton.disabled = true;
 finishQuizButton.disabled = true;
 finishQuizButton.onclick = () => {
@@ -99,5 +101,14 @@ function addQuestion(index) {
 addQuestion(i);
 function displayScore() {
   let body = document.querySelector(".main");
-  body.innerHTML = `Your Score is ${score}`;
+  body.innerHTML = `<p>Name: ${name}</p><p>Score: ${score}</p>`;
 }
+
+submitName.onclick = () => {
+  let inputName = document.getElementById("name");
+  if (inputName.value) {
+    name = inputName.value;
+    let modal = document.querySelector(".name");
+    modal.style.display = "none";
+  }
+};
