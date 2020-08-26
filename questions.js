@@ -8,6 +8,8 @@ const questions = [
       4: "Russia",
     },
     ans: 2,
+    answered: false,
+    selectedAnswer: null,
   },
   {
     q: "From where coronavirus got its name?",
@@ -18,6 +20,8 @@ const questions = [
       4: "None of the above",
     },
     ans: 1,
+    answered: false,
+    selectedAnswer: null,
   },
   {
     q: "Which of the following diseases are related to coronavirus?",
@@ -28,6 +32,8 @@ const questions = [
       4: "Neither A and B",
     },
     ans: 3,
+    answered: false,
+    selectedAnswer: null,
   },
   {
     q: "The first case of novel coronavirus was identified in",
@@ -38,6 +44,8 @@ const questions = [
       4: "Hong Kong",
     },
     ans: 1,
+    answered: false,
+    selectedAnswer: null,
   },
   {
     q: "What is Coronavirus?",
@@ -48,6 +56,8 @@ const questions = [
       4: "Only A is correct",
     },
     ans: 3,
+    answered: false,
+    selectedAnswer: null,
   },
   {
     q:
@@ -59,6 +69,8 @@ const questions = [
       4: "Favipravir",
     },
     ans: 1,
+    answered: false,
+    selectedAnswer: null,
   },
   {
     q:
@@ -70,6 +82,8 @@ const questions = [
       4: "More than 200",
     },
     ans: 4,
+    answered: false,
+    selectedAnswer: null,
   },
   {
     q:
@@ -81,6 +95,8 @@ const questions = [
       4: "None of the above",
     },
     ans: 1,
+    answered: false,
+    selectedAnswer: null,
   },
   {
     q:
@@ -92,6 +108,8 @@ const questions = [
       4: "R-cells",
     },
     ans: 3,
+    answered: false,
+    selectedAnswer: null,
   },
   {
     q:
@@ -103,6 +121,8 @@ const questions = [
       4: "Hens",
     },
     ans: 1,
+    answered: false,
+    selectedAnswer: null,
   },
 ];
 export default questions;
