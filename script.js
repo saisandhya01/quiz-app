@@ -13,6 +13,7 @@ let name = "";
 previousButton.disabled = true;
 finishQuizButton.disabled = true;
 finishQuizButton.onclick = () => {
+  clearInterval(interval);
   displayScore();
 };
 previousButton.onclick = () => {
@@ -104,10 +105,11 @@ function addQuestion(index) {
 addQuestion(i);
 function displayScore() {
   let body = document.querySelector(".main");
+  let timeTaken = 300 - document.getElementById("timer-seconds").innerHTML;
   if (name === "") {
-    body.innerHTML = `<p>Your score is ${score}</p>`;
+    body.innerHTML = `<p>Your score is ${score}</p><p>Time taken is ${timeTaken} seconds</p>`;
   } else {
-    body.innerHTML = `<p>Name: ${name}</p><p>Score: ${score}</p>`;
+    body.innerHTML = `<p>Name: ${name}</p><p>Score: ${score}</p><p>Time taken is ${timeTaken} seconds</p>`;
   }
 }
 
@@ -117,11 +119,13 @@ submitName.onclick = () => {
     name = inputName.value;
     let modal = document.querySelector(".name");
     modal.style.display = "none";
+    countdown();
   }
 };
 closeName.onclick = () => {
   let modal = document.querySelector(".name");
   modal.style.display = "none";
+  countdown();
 };
 function displayNavbar() {
   let navbar = document.querySelector(".nav");
@@ -145,3 +149,15 @@ function displayNavbar() {
   }
 }
 displayNavbar();
+let interval = null;
+function countdown() {
+  let seconds = document.getElementById("timer-seconds").innerHTML;
+  interval = setInterval(() => {
+    seconds--;
+    document.getElementById("timer-seconds").innerHTML = seconds;
+    if (seconds <= 0) {
+      displayScore();
+      clearInterval(interval);
+    }
+  }, 1000);
+}
