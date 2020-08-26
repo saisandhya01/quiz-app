@@ -28,11 +28,18 @@ nextButton.onclick = () => {
 };
 
 function addQuestion(index) {
-  if (index > 0) {
+  if (index === 0) {
+    previousButton.disabled = true;
+    nextButton.disabled = false;
+    finishQuizButton.disabled = true;
+  } else {
     previousButton.disabled = false;
+    nextButton.disabled = false;
+    finishQuizButton.disabled = true;
   }
   if (index >= 10) {
     nextButton.disabled = true;
+    finishQuizButton.disabled = false;
   }
   questionElement.innerHTML = "";
   questionElement.innerHTML = questions[index].q;
@@ -91,6 +98,6 @@ function addQuestion(index) {
 
 addQuestion(i);
 function displayScore() {
-  let body = document.querySelector("body");
+  let body = document.querySelector(".main");
   body.innerHTML = `Your Score is ${score}`;
 }
