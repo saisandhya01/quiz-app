@@ -105,4 +105,4 @@ const questions = [
     ans: 1,
   },
 ];
-module.exports = questions;
+export default questions;
