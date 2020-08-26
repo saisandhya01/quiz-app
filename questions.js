@@ -125,4 +125,16 @@ const questions = [
     selectedAnswer: null,
   },
 ];
+
+//fischer yates algorithm to shuffle array
+let i = questions.length,
+  k,
+  temp;
+while (--i > 0) {
+  k = Math.floor(Math.random() * (i + 1));
+  temp = questions[k];
+  questions[k] = questions[i];
+  questions[i] = temp;
+}
+
 export default questions;
