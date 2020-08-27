@@ -110,6 +110,7 @@ function displayScore() {
     body.innerHTML = `<p>Your score is ${score}</p><p>Time taken is ${timeTaken} seconds</p>`;
   } else {
     body.innerHTML = `<p>Name: ${name}</p><p>Score: ${score}</p><p>Time taken is ${timeTaken} seconds</p>`;
+    setBestScore(name, score);
   }
 }
 
@@ -160,4 +161,19 @@ function countdown() {
       clearInterval(interval);
     }
   }, 1000);
+}
+
+function setBestScore(name, score) {
+  let body = document.querySelector(".main");
+  if (!localStorage.getItem(name)) {
+    localStorage.setItem(name, 0);
+    localStorage.setItem(name, score);
+  } else {
+    if (score > localStorage.getItem(name)) {
+      localStorage.setItem(name, score);
+    }
+  }
+  let p = document.createElement("p");
+  p.innerHTML = `Your best-score is ${localStorage.getItem(name)}`;
+  body.appendChild(p);
 }
