@@ -46,7 +46,7 @@ function addQuestion(index) {
     finishQuizButton.disabled = false;
   }
   questionElement.innerHTML = "";
-  questionElement.innerHTML = questions[index].q;
+  questionElement.innerHTML = `${index + 1}) ${questions[index].q}`;
   for (let j = 0; j < 4; j++) {
     let optionDivs = document.getElementById(`option-${j + 1}`);
     optionDivs.classList.remove("correct");
@@ -141,9 +141,9 @@ function displayNavbar() {
     };
     if (questions[k].answered) {
       if (questions[k].selectedAnswer === questions[k].ans) {
-        p.classList.add("correct");
+        p.classList.add("correct-color");
       } else {
-        p.classList.add("wrong");
+        p.classList.add("wrong-color");
       }
     }
     navbar.appendChild(p);

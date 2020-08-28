@@ -3,13 +3,24 @@
   padding: 0px;
 }
 body {
-  background: lightpink;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-image: url("coronavirus.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100vh;
+  color: white;
+}
+#name-label {
+  color: black;
 }
 .correct {
   background-color: green;
 }
-
+.correct-color {
+  color: darkgreen;
+}
+.wrong-color {
+  color: red;
+}
 .wrong {
   background-color: red;
 }
@@ -27,25 +38,33 @@ body {
 }
 .main {
   display: flex;
-  border: 1px solid black;
+  border: 1px solid white;
+  border-radius: 5px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 5px;
   margin-top: 2%;
-  width: 80vw;
-  height: 70vh;
+  width: 78vw;
+  height: 80vh;
+}
+.main > p {
+  font-size: 35px;
 }
 .nav {
   display: flex;
   width: 20vw;
+  height: 80vh;
   flex-direction: column;
+  margin: 5px;
   margin-top: 2%;
-  border: 1px solid blue;
-  justify-content: space-between;
+  border: 1px solid white;
+  border-radius: 5px;
+  justify-content: space-around;
   align-items: center;
 }
 .nav > p {
-  border: 1px solid black;
+  border: 1px none black;
   cursor: pointer;
 }
 #question {
@@ -68,8 +87,11 @@ label {
 .buttons > button {
   font-size: 23px;
   margin: 10px;
-  padding: 2px;
-  background: none;
+  padding: 6px;
+  cursor: pointer;
+  background: white;
+  border: 1px none black;
+  border-radius: 15px;
 }
 #name-label {
   font-size: initial;
