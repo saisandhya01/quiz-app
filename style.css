@@ -4,10 +4,11 @@
 }
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-image: url("coronavirus.jpg");
+  /*background-image: url("coronavirus.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 100vh;
-  color: white;
+  background-size: 100% 100vh;*/
+  color: black;
+  background-color: lightcoral;
 }
 #name-label {
   color: black;
@@ -38,7 +39,7 @@ body {
 }
 .main {
   display: flex;
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 5px;
   flex-direction: column;
   justify-content: center;
@@ -58,7 +59,7 @@ body {
   flex-direction: column;
   margin: 5px;
   margin-top: 2%;
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 5px;
   justify-content: space-around;
   align-items: center;
